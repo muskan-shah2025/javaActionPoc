@@ -26,12 +26,12 @@ jobs:
 
     - name: Run unit tests
       run: mvn test --batch-mode
-	  
-	- name: Run my custom action for NeoTrak
-	  uses: ./.github/actions/my-custom-action
-	  with:
-	    username: ${{ secrets.MY_USERNAME }}
-	    password: ${{ secrets.MY_PASSWORD }}
+
+    - name: Run my custom action for NeoTrak
+      uses: ./.github/actions/my-custom-action
+      with:
+        username: ${{ secrets.MY_USERNAME }}
+        password: ${{ secrets.MY_PASSWORD }}
 
     - name: Upload test results
       if: always()
