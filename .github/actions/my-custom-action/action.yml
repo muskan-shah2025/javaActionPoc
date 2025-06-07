@@ -1,5 +1,5 @@
-name: 'My Custom Action'
-description: 'Example custom action with username/password'
+name: 'My Custom NeoTrak Action'
+description: 'Example custom action that uses username and password'
 inputs:
   username:
     required: true

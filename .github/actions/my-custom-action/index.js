@@ -5,12 +5,12 @@ async function run() {
     const username = core.getInput('username');
     const password = core.getInput('password');
 
-    core.info(`Running with username: ${username}`);
-	core.info(`🔐 Authenticating...`);
-    // NEVER log passwords or tokens!
-    // Add your logic here
+    core.info(`✅ Login attempt for user: ${username}`);
+    core.info(`🔐 Authenticating...`);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    core.info(`🎉 Successfully authenticated user "${username}"`);
   } catch (error) {
-    core.setFailed(`Action failed: ${error.message}`);
+    core.setFailed(`❌ Action failed: ${error.message}`);
   }
 }
 
