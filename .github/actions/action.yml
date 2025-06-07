@@ -1,0 +1,10 @@
+name: 'My Custom Action'
+description: 'Example custom action with username/password'
+inputs:
+  username:
+    required: true
+  password:
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
