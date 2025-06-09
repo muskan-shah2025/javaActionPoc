@@ -52,7 +52,7 @@ jobs:
         find . -name pom.xml
 
     - name: Upload SBOM file
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
           name: sbom
           path: project/sbom.json
