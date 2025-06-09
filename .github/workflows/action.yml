@@ -28,7 +28,8 @@ jobs:
       run: mvn test --batch-mode
 
     - name: Run my custom action for NeoTrak
-      uses: ./.github/actions/my-custom-action
+      # uses: ./.github/actions/my-custom-action
+      uses: muskan-shah2025/NeoTrak-action@v1
       with:
         username: ${{ secrets.MY_USERNAME }}
         password: ${{ secrets.MY_PASSWORD }}
