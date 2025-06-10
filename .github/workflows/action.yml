@@ -41,15 +41,15 @@ jobs:
         name: test-results
         path: target/surefire-reports/
 
-    - name: List project files
-      run: |
-        echo "Listing project files:"
-        find . -type f
+    # - name: List project files
+    #   run: |
+    #     echo "Listing project files:"
+    #     find . -type f
 
-    - name: pom file
-      run: |
-        echo "Listing all pom.xml files in the project:"
-        find . -name pom.xml
+    # - name: pom file
+    #   run: |
+    #     echo "Listing all pom.xml files in the project:"
+    #     find . -name pom.xml
 
     - name: Upload SBOM file
       uses: actions/upload-artifact@v4
