@@ -34,25 +34,25 @@ jobs:
         username: ${{ secrets.MY_USERNAME }}
         password: ${{ secrets.MY_PASSWORD }}
 
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results
-        path: target/surefire-reports/
+    # - name: Upload test results
+    #   if: always()
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: test-results
+    #     path: target/surefire-reports/
 
-    - name: List project files
-      run: |
-        echo "Listing project files:"
-        find . -type f
+    # - name: List project files
+    #   run: |
+    #     echo "Listing project files:"
+    #     find . -type f
 
-    - name: pom file
-      run: |
-        echo "Listing all pom.xml files in the project:"
-        find . -name pom.xml
+    # - name: pom file
+    #   run: |
+    #     echo "Listing all pom.xml files in the project:"
+    #     find . -name pom.xml
 
-    - name: Upload SBOM file
-      uses: actions/upload-artifact@v4
-      with:
-          name: sbom
-          path: project/sbom.json
+    # - name: Upload SBOM file
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #       name: sbom
+    #       path: sbom.json
