@@ -29,30 +29,30 @@ jobs:
 
     - name: Run my custom action for NeoTrak
       # uses: ./.github/actions/my-custom-action
-      uses: muskan-shah2025/NeoTrak-action@v1.0.1
+      uses: muskan-shah2025/NeoTrak-action@v1.0.2
       with:
         username: ${{ secrets.MY_USERNAME }}
         password: ${{ secrets.MY_PASSWORD }}
 
-    # - name: Upload test results
-    #   if: always()
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: test-results
-    #     path: target/surefire-reports/
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: target/surefire-reports/
 
-    # - name: List project files
-    #   run: |
-    #     echo "Listing project files:"
-    #     find . -type f
+    - name: List project files
+      run: |
+        echo "Listing project files:"
+        find . -type f
 
-    # - name: pom file
-    #   run: |
-    #     echo "Listing all pom.xml files in the project:"
-    #     find . -name pom.xml
+    - name: pom file
+      run: |
+        echo "Listing all pom.xml files in the project:"
+        find . -name pom.xml
 
-    # - name: Upload SBOM file
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #       name: sbom
-    #       path: sbom.json
+    - name: Upload SBOM file
+      uses: actions/upload-artifact@v4
+      with:
+          name: sbom
+          path: sbom.json
