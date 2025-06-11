@@ -21,7 +21,10 @@ jobs:
           python-version: '3.x'
 
       - name: Install cdxgen
-        run: pip install cdxgen
+        run: |
+          wget https://github.com/CycloneDX/cdxgen/releases/latest/download/cdxgen-linux-x86_64.tar.gz
+          tar -xzf cdxgen-linux-x86_64.tar.gz
+          sudo mv cdxgen /usr/local/bin/
 
       - name: Install Node.js dependencies
         run: npm install
