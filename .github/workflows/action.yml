@@ -33,4 +33,5 @@ jobs:
           who-to-greet: 'Muskan'
 
       - name: Show SBOM output
-        run: echo "SBOM: ${{ steps.neocustom.outputs.sbom }}"
+        run: |
+          echo "SBOM: ${{ steps.neocustom.outputs.sbom }}"
