@@ -11,20 +11,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v4
+      - name: Set up Go
+        uses: actions/setup-go@v4
         with:
-          python-version: '3.x'
+          go-version: '1.21'
 
       - name: Install cdxgen
-        run: |
-          wget https://github.com/CycloneDX/cdxgen/releases/download/v11.3.2/cdxgen-linux-amd64.tar.gz
-          tar -xzf cdxgen-linux-amd64.tar.gz
-          sudo mv cdxgen /usr/local/bin/
+        run: go install github.com/CycloneDX/cdxgen/cmd/cdxgen@latest
+
+      - name: Add Go bin to PATH
+        run: echo "${{ env.GOPATH }}/bin" >> $GITHUB_PATH
 
       - name: Install Node.js dependencies
         run: npm install
@@ -38,3 +37,4 @@ jobs:
       - name: Show SBOM output
         run: |
           echo "SBOM: ${{ steps.neocustom.outputs.sbom }}"
+
