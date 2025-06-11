@@ -25,4 +25,4 @@ jobs:
       - name: Show SBOM output
         run: |
           echo "SBOM:"
-          echo "${{ steps.generate_sbom.outputs.sbom }}"
+          printf "%s\n" "${{ steps.generate_sbom.outputs.sbom }}"
