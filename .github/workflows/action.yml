@@ -11,19 +11,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Go
-        uses: actions/setup-go@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          go-version: '1.21'
+          ruby-version: '3.x'
 
       - name: Install cdxgen
-        run: go install github.com/CycloneDX/cdxgen/cmd/cdxgen@latest
-
-      - name: Add Go bin to PATH
-        run: echo "${{ env.GOPATH }}/bin" >> $GITHUB_PATH
+        run: gem install cdxgen
 
       - name: Install Node.js dependencies
         run: npm install
@@ -35,6 +33,4 @@ jobs:
           who-to-greet: 'Muskan'
 
       - name: Show SBOM output
-        run: |
-          echo "SBOM: ${{ steps.neocustom.outputs.sbom }}"
-
+        run: echo "SBOM file contents:" && cat sbom.json
