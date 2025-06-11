@@ -13,16 +13,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 👇 Install cdxgen globally on the runner
+      # Install cdxgen globally
       - name: Install cdxgen
         run: npm install -g @cyclonedx/cdxgen
 
-      # 👇 Call your custom action
+      # Run your custom action
       - name: Run custom SBOM action
         uses: muskan-shah2025/NeoCustomWithDist@main
         id: generate_sbom
 
-      - name: Show SBOM output
-        run: |
-          echo "SBOM:"
-          printf "%s\n" "${{ steps.generate_sbom.outputs.sbom }}"
+      # Save SBOM output to a file
+      - name: Save SBOM to file
+        run: echo "${{ steps.generate_sbom.outputs.sbom }}" > sbom.json
+
+      # Upload SBOM file as an artifact
+      - name: Upload SBOM as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sbom
+          path: sbom.json
