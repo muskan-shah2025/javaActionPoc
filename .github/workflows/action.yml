@@ -1,36 +1,28 @@
-name: Java CI with Maven
+name: Generate SBOM using Custom Action
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
+  generate-sbom:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.x'
-
+      # 👇 Install cdxgen globally on the runner
       - name: Install cdxgen
-        run: gem install cdxgen
+        run: npm install -g @cyclonedx/cdxgen
 
-      - name: Install Node.js dependencies
-        run: npm install
-
-      - name: Run NeoCustom Action
-        uses: muskan-shah2025/NeoCustomWithDist@v1.0.2
-        id: neocustom
-        with:
-          who-to-greet: 'Muskan'
+      # 👇 Call your custom action
+      - name: Run custom SBOM action
+        uses: muskan-shah2025/NeoCustomWithDist@main
+        id: generate_sbom
 
       - name: Show SBOM output
-        run: echo "SBOM file contents:" && cat sbom.json
+        run: |
+          echo "SBOM:"
+          echo "${{ steps.generate_sbom.outputs.sbom }}"
