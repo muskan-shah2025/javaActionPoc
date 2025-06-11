@@ -22,8 +22,8 @@ jobs:
 
       - name: Install cdxgen
         run: |
-          wget https://github.com/CycloneDX/cdxgen/releases/latest/download/cdxgen-linux-x86_64.tar.gz
-          tar -xzf cdxgen-linux-x86_64.tar.gz
+          wget https://github.com/CycloneDX/cdxgen/releases/download/v11.3.2/cdxgen-linux-amd64.tar.gz
+          tar -xzf cdxgen-linux-amd64.tar.gz
           sudo mv cdxgen /usr/local/bin/
 
       - name: Install Node.js dependencies
