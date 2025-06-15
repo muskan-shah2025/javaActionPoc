@@ -18,13 +18,13 @@ jobs:
       #   run: npm install -g @cyclonedx/cdxgen
 
       # Run your custom action
-      # - name: Run custom SBOM action
-      #   uses: muskan-shah2025/NeoCustomWithDist@main
-      #   id: generate_sbom
-
       - name: Run custom SBOM action
-        uses: muskan-shah2025/NeoCustomWithDocker@main
-        id: generate_sbom_docker
+        uses: muskan-shah2025/NeoCustomWithDist@main
+        id: generate_sbom_with_dist
+
+      # - name: Run custom SBOM action
+      #   uses: muskan-shah2025/NeoCustomWithDocker@main
+      #   id: generate_sbom_with_docker
 
       # - name: Run SBOM generator in Docker manually
       #   run: |
