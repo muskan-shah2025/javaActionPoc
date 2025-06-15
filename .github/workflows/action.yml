@@ -48,4 +48,3 @@ jobs:
 
       - name: Print SBOM output (pretty)
         run: jq . sbom.json
-
