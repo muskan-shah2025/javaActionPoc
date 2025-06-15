@@ -37,9 +37,6 @@ jobs:
           name: sbom
           path: sbom.json 
 
-      - name: Print SBOM output
-        run: echo "${{ steps.sbom-step.outputs.sbom }}"
-
       - name: Print SBOM output (pretty)
         run: jq . sbom.json
 
