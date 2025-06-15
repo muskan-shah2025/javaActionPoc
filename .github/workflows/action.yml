@@ -21,9 +21,17 @@ jobs:
       #   run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
       
       # Run your custom action
-      - name: Run custom SBOM action
-        uses: muskan-shah2025/NeoCustomWithDist@main
-        id: generate_sbom
+      # - name: Run custom SBOM action
+      #   uses: muskan-shah2025/NeoCustomWithDist@main
+      #   id: generate_sbom
+
+      - name: Run SBOM generator in Docker manually
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            -w /app \
+            prabhushan/sbom-base:latest \
+            cdxgen . -o sbom.json
 
       - name: Debug — list files
         run: ls -al
