@@ -25,9 +25,15 @@ jobs:
         uses: muskan-shah2025/NeoCustomWithDist@main
         id: generate_sbom
 
+      - name: Debug — list files
+        run: ls -al
+        
       # Upload SBOM file as an artifact
       - name: Upload SBOM as artifact
         uses: actions/upload-artifact@v4
         with:
           name: sbom
           path: sbom.json 
+
+      - name: Print SBOM output
+        run: echo "${{ steps.sbom-step.outputs.sbom }}"
