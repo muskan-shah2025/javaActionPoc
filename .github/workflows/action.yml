@@ -17,6 +17,9 @@ jobs:
       # - name: Install cdxgen
       #   run: npm install -g @cyclonedx/cdxgen
 
+      - name: Docker login
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+      
       # Run your custom action
       - name: Run custom SBOM action
         uses: muskan-shah2025/NeoCustomWithDist@main
