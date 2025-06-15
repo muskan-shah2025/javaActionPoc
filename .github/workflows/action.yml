@@ -17,9 +17,6 @@ jobs:
       # - name: Install cdxgen
       #   run: npm install -g @cyclonedx/cdxgen
 
-      # - name: Docker login
-      #   run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-      
       # Run your custom action
       - name: Run custom SBOM action
         uses: muskan-shah2025/NeoCustomWithDist@main
@@ -32,9 +29,6 @@ jobs:
       #       -w /app \
       #       prabhushan/sbom-base:latest \
       #       cdxgen . -o sbom.json
-
-      - name: Debug — list files
-        run: ls -al
         
       # Upload SBOM file as an artifact
       - name: Upload SBOM as artifact
@@ -43,8 +37,8 @@ jobs:
           name: sbom
           path: sbom.json 
 
-      # - name: Print SBOM output
-      #   run: echo "${{ steps.sbom-step.outputs.sbom }}"
+      - name: Print SBOM output
+        run: echo "${{ steps.sbom-step.outputs.sbom }}"
 
       - name: Print SBOM output (pretty)
         run: jq . sbom.json
