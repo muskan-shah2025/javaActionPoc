@@ -3,8 +3,9 @@ name: Generate SBOM using Custom Action
 on:
   push:
     branches:
-      - main
-
+      - main 
+  workflow_dispatch:
+  
 jobs:
   generate-sbom:
     runs-on: ubuntu-latest
