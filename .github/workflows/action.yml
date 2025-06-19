@@ -32,6 +32,7 @@ jobs:
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
+
       # - name: Run SBOM generator in Docker manually
       #   run: |
       #     docker run --rm \
