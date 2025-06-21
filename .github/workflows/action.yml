@@ -50,5 +50,5 @@ jobs:
           path: sbom.json 
 
       - name: Print SBOM output (pretty)
-        run: jq . sbom.json
+        run: jq . sbom-new.json
         
