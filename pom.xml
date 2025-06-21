@@ -15,12 +15,12 @@
 
   <dependencies>
     <!-- JUnit 5 for unit testing -->
-    <dependency>
+<!--     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
       <version>5.10.0</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
